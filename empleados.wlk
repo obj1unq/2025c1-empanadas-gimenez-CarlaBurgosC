@@ -9,11 +9,22 @@ object galvan {
     method sueldo(_sueldo){ //Orden?
         sueldo = _sueldo
     }
+    method gastar(_cuanto){
+        return sueldo - _cuanto
+    }
+    method deuda(){
+        
+
+    }
+    method dinero(){
+        
+    }
 }
 
 object baigorria {
     var cantEmpanadasVendidas = 0
     var precioEmpanadas = 15
+    var totalCobrado = 0
 
 
     method venderEmpanadas(_empanadasVendidas){
@@ -27,7 +38,9 @@ object baigorria {
     method precioEmpanadas(_precio){
         precioEmpanadas = _precio
     }
-
+    method totalCobrado(){
+        return  totalCobrado + self.sueldo()
+    }
 }
 
 
@@ -41,8 +54,8 @@ object gimenez {
     method fondo() {
         return fondo
     }
-    method pagarSueldo(_sueldoPagado){
-        fondo = fondo - _sueldoPagado
+    method pagarSueldo(_empleado){
+        fondo = fondo - _empleado.sueldo()
     }
 }
 
