@@ -11,3 +11,7 @@ object baigorria {
 object gimenez {
     var fondo = 300000
 }
+
+object estoyprobandoelcommit{
+    
+}
