@@ -6,19 +6,40 @@ object galvan {
     method sueldo() { //Consulta
         return sueldo
     }
-    method sueldo(_sueldo){ //Orden?
-        sueldo = _sueldo
-    }
-    method gastar(_cuanto){
-        return sueldo - _cuanto
-    }
-    method deuda(){
-        
-
-    }
-    method dinero(){
-        
-    }
+    method sueldo(nuevoValor) {	sueldo = nuevoValor	}
+	
+	method opeDeuda() { return sueldo - deuda}
+	
+	method cobrarSueldo(){
+				
+		if (self.opeDeuda() > 0 ) {
+			dinero = dinero + self.opeDeuda()
+			deuda = 0
+		}
+		else{
+			deuda = (self.opeDeuda()).abs()
+			dinero = 0
+		}	
+	}
+	
+	method gastar(cantidad){
+		deuda = (deuda + cantidad)
+		
+		if (dinero >0){
+			dinero = dinero - deuda
+			if ( dinero - deuda < 0){
+				deuda = dinero.abs()
+				dinero = 0
+			}
+			else{
+				deuda = 0
+			}
+		}
+	}
+	
+	method totalDeuda(){ return deuda }
+	method totalDinero(){ return dinero }
+    
 }
 
 object baigorria {
@@ -35,12 +56,20 @@ object baigorria {
         return cantEmpanadasVendidas * precioEmpanadas
     }
 
+
+
     method precioEmpanadas(_precio){
         precioEmpanadas = _precio
     }
-    method totalCobrado(){
-        return  totalCobrado + self.sueldo()
-    }
+    
+    method cobrarSueldo(){
+		totalCobrado = totalCobrado + self.sueldo()
+		cantidadEmpanadasVendidas = 0	
+		return totalCobrado
+	}
+    
+    
+
 }
 
 
