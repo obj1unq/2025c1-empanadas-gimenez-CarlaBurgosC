@@ -1,23 +1,30 @@
 //Escribir aqui los objetos
 object galvan {
     var sueldo = 15000
+    var dinero = 0
+    var deuda = 0
 
 
-    method sueldo() { //Consulta
+    method sueldo() { //Consulta, Getter
         return sueldo
     }
-    method sueldo(nuevoValor) {	sueldo = nuevoValor	}
+    
+    method sueldo(_sueldo) {//Setter, convención: mismo nombre del atributo con guión bajo
+        sueldo = _sueldo	
+    }
 	
-	method opeDeuda() { return sueldo - deuda}
+	method deuda() {
+        return sueldo - deuda
+    }
 	
 	method cobrarSueldo(){
 				
-		if (self.opeDeuda() > 0 ) {
-			dinero = dinero + self.opeDeuda()
+		if (self.deuda() > 0 ) {
+			dinero = dinero + self.deuda()
 			deuda = 0
 		}
 		else{
-			deuda = (self.opeDeuda()).abs()
+			deuda = (self.deuda()).abs()
 			dinero = 0
 		}	
 	}
@@ -64,7 +71,7 @@ object baigorria {
     
     method cobrarSueldo(){
 		totalCobrado = totalCobrado + self.sueldo()
-		cantidadEmpanadasVendidas = 0	
+		cantEmpanadasVendidas = 0	
 		return totalCobrado
 	}
     
@@ -80,7 +87,7 @@ object gimenez {
     method fondo(_fondo){
         fondo = _fondo
     }
-    method fondo() {
+    method fondo() { //"Se conoce su fondo" Getter
         return fondo
     }
     method pagarSueldo(_empleado){
@@ -88,9 +95,24 @@ object gimenez {
     }
 }
 
-//object estoyprobandoelcommit{
-    //Se suben con el perfil de otro alumno que se llama Franco
-    //Nueva prueba 
-    // Link para corregir usuario https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Configurando-Git-por-primera-vez
+/*
+Borrar credenciales
 
-//}
+git bash
+$ git config --global user.name "Carla Burgos"
+$ git config --global user.email "carlaburgosunq@gmail.com"
+
+CLASE 31/3
+Variable =/= referencia
+x Aunque no son lo mismo son intercambiables, referencia "es todo"
+Atributo Tipo específico de referencia, info del objeto
+Constante y Variable Detallan qué tipo de referencia 
+Referencia Una fecha que apunta a un objeto
+Objeto = Referencia No hay objeto sin referencia 
+var fondo (referencia sin objeto) var fondo = 1000 (referencia c objeto)
+
+shift alt f
+
+
+
+*/
