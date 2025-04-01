@@ -63,20 +63,16 @@ object baigorria {
         return cantEmpanadasVendidas * precioEmpanadas
     }
 
-
-
     method precioEmpanadas(_precio){
         precioEmpanadas = _precio
     }
     
     method cobrarSueldo(){
-		totalCobrado = totalCobrado + self.sueldo()
+		totalCobrado =  self.sueldo()
 		cantEmpanadasVendidas = 0	
 		return totalCobrado
 	}
     
-    
-
 }
 
 
@@ -87,9 +83,11 @@ object gimenez {
     method fondo(_fondo){
         fondo = _fondo
     }
-    method fondo() { //"Se conoce su fondo" Getter
+
+    method fondo() { //"Se conoce su fondo" Getter,  se puede hacer calculos más no modificar cosas
         return fondo
     }
+
     method pagarSueldo(_empleado){
         fondo = fondo - _empleado.sueldo()
     }
@@ -110,9 +108,13 @@ Constante y Variable Detallan qué tipo de referencia
 Referencia Una fecha que apunta a un objeto
 Objeto = Referencia No hay objeto sin referencia 
 var fondo (referencia sin objeto) var fondo = 1000 (referencia c objeto)
+metodo =/= mensaje
+argumento (_sueldo(o) +(m) 1(a) =/= parametro (_sueldo)
+
 
 shift alt f
-
+Orden modifica
+Getter consulta, puede modificar
 
 
 */
